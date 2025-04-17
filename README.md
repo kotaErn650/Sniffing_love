@@ -1,61 +1,150 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+RECOMENDACIONES:
+1🔜
+Clonar Repo:
+git clone https://github.com/kotaErn650/Sniffing_love.git
+cd Sniffing_love
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Realizar Checkout a su rama Correspondiente 
+(git checkout willam )
+(git checkout janeer )
+(git checkout jose )
+(git checkout kevin )
 
-## About Laravel
+2🔜 División Equitativa de Tablas por Funcionalidades
+        🥸William (11 tablas) - Módulo de Autenticación y Usuarios
+        1-roles
+        2-usuarios
+        3-politicas
+        4-aceptacion_politicas
+        5-notificaciones
+        6-puntos_recompensa
+        7-transacciones_puntos
+        8-referidos
+        9-membresias
+        10-suscripciones_membresias
+        11-configuraciones
+        🥸
+        Jose (10 tablas) - Módulo de Veterinarias y Servicios
+        1-veterinarias
+        2-veterinarios
+        3-servicios
+        4-veterinaria_servicios
+        5-descuentos
+        6-aplicacion_descuentos
+        7-metodos_pago
+        8-pagos
+        9-eventos
+        10-registro_eventos
+        🥸
+        Janeer (10 tablas) - Módulo de Citas y Salud
+        1-citas
+        2-historial_medico
+        3-vacunas
+        4-mascota_vacunas
+        5-resenas
+        6-tickets_soporte
+        7-mensajes_soporte
+        8-logs_sistema
+        9-auditoria
+        10-dispositivos_mascotas (opcional)
+        🥸
+        Kevin (11 tablas) - Módulo de Mascotas y Comunidad
+        1-tipos_mascota
+        2-razas
+        3-mascotas
+        4-datos_dispositivos (opcional)
+        5-productos
+        6-pedidos_productos
+        7-detalles_pedido
+        8-foros
+        9-temas_foro
+        10-respuestas_foro
+        11-mensajes_directos
+3🔜estructura
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── Auth/         # William
+│   │   ├── Veterinary/   # Jose
+│   │   ├── Health/       # Janeer
+│   │   └── Pets/         # Kevin
+│   └── ...
+├── Models/
+│   ├── Auth/             # William
+│   ├── Veterinary/       # Jose
+│   ├── Health/           # Janeer
+│   └── Pets/             # Kevin
+└── Ecxcetera
+|
+|__ resources
+            |__carpetas de cada vista
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+4🔜
+Las rutas estaran seccionadas por cada integrante cada uno tendra su propio modulo
+// routes/ejemplo.php (Janeer)
+// routes/ejemplo.php (William)
+// routes/ejemoplo.php (Jose)
+// routes/ejemplo.php (kevin)
+//
+routes/
+├── web.php
+├── jose.php
+├── william.php
+├── janeer.php
+├── kevin.php
+para implemtacion de modulos y manejo de directorios
+esto con el fin de no crear confliscos de pisarnios las mismas lineas de codigo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+5🔜
+No olvidar la implemetacion o invocacion de las tablas se realiza en SINGULAR Y
+el llamdo a los componentes o campos se hace en plural(s) ya sea en {rutas - id- name}
+o llamados desde cualquier ubicacion de sus archivos
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+6🔜 
+Estructura DE LAS RAMAS
+main (rama principal protegida)
+│
+├── develop (rama de integración)
+│
+├── (janeer)
+│
+├── (william)
+│
+├── (kevin)
+|
+├── (jose)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7🔜
+TRABAJA EN SU MODULO ASIGNADO, 
+EJEMPLO
+git clone [url-del-repositorio]
+git checkout -b develop origin/develop
+|
+|
+git checkout develop
+git pull origin develop
+git checkout -b william
+|
+|
+NO MODIFICAR MIGRACIONES YA CREADAS
+NO TRABAJAR MIGRACIONES- MODEL - CONTROLLER - VEIW DE OTROS
+|
+|
+|
+hacer un pull a develop y luego sincronisa su Rama y empiezan a Trabajar
+|
+|
+|
+SOLO SE HACE PUSH DESPUES DE ASEGURARSE QUE SU FUNCIONALIDAD ESTE COMPLETA Y COMPILANDO - NO HACER COMMITS POR CADA LETRA Y PUSH POR TODO ☠️☠️☠️
+|
+|
+|
+☠️☠️PULL REQUEST
+SE DEVE revisar por otro
+en la parte superior donde diga compare este SU RAMA
+en la parte donde diga BASe este la rama develop
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+en la parte de Assignes se deb definir Un Integrante()
