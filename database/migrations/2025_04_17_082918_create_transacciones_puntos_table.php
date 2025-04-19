@@ -6,21 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('transacciones_puntos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_transaccion');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->integer('puntos');
+            $table->enum('tipo', ['ganancia', 'redencion']);
+            $table->string('motivo', 100);
+            $table->timestamp('fecha_transaccion')->useCurrent();
+            $table->integer('id_referencia')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('transacciones_puntos');
     }

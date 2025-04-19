@@ -6,21 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_producto');
+            $table->foreignId('id_veterinaria')->nullable()->constrained('veterinarias', 'id_veterinaria');
+            $table->string('nombre', 100);
+            $table->text('descripcion')->nullable();
+            $table->enum('categoria', ['alimento', 'medicamento', 'accesorio', 'higiene', 'otro']);
+            $table->decimal('precio', 10, 2);
+            $table->integer('stock')->default(0);
+            $table->string('imagen', 255)->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('productos');
     }

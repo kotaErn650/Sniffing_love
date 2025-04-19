@@ -6,21 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('auditoria', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_auditoria');
+            $table->string('tabla_afectada', 50);
+            $table->integer('id_registro_afectado')->nullable();
+            $table->enum('tipo_operacion', ['insert', 'update', 'delete']);
+            $table->text('datos_anteriores')->nullable();
+            $table->text('datos_nuevos')->nullable();
+            $table->foreignId('id_usuario')->nullable()->constrained('usuarios', 'id_usuario');
+            $table->timestamp('fecha_operacion')->useCurrent();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('auditoria');
     }

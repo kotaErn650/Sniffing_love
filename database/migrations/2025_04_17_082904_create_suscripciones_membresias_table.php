@@ -6,21 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('suscripciones_membresias', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_suscripcion');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->foreignId('id_membresia')->constrained('membresias', 'id_membresia');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+            $table->enum('estado', ['activa', 'cancelada', 'vencida'])->default('activa');
+            $table->string('metodo_pago', 50)->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('suscripciones_membresias');
     }

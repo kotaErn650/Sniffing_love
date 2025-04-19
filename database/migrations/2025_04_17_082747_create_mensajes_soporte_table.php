@@ -6,21 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('mensajes_soporte', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_mensaje');
+            $table->foreignId('id_ticket')->constrained('tickets_soporte', 'id_ticket');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->text('mensaje');
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->boolean('es_staff')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('mensajes_soporte');
     }

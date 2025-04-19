@@ -6,21 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('referidos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_referido');
+            $table->foreignId('id_usuario_referidor')->constrained('usuarios', 'id_usuario');
+            $table->foreignId('id_usuario_referido')->constrained('usuarios', 'id_usuario');
+            $table->timestamp('fecha_referido')->useCurrent();
+            $table->boolean('puntos_otorgados')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('referidos');
     }

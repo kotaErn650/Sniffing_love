@@ -6,21 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('datos_dispositivos', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_dato');
+            $table->foreignId('id_dispositivo')->constrained('dispositivos_mascotas', 'id_dispositivo');
+            $table->enum('tipo_dato', ['ubicacion', 'ritmo_cardiaco', 'temperatura', 'actividad', 'sueño']);
+            $table->string('valor', 50);
+            $table->timestamp('fecha_registro')->useCurrent();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('datos_dispositivos');
     }

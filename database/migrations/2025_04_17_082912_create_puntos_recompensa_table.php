@@ -6,21 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('puntos_recompensa', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_punto');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->integer('puntos')->default(0);
+            $table->timestamp('fecha_actualizacion')->useCurrent()->useCurrentOnUpdate();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('puntos_recompensa');
     }

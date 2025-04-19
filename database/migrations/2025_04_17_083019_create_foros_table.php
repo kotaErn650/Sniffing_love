@@ -6,21 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('foros', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_foro');
+            $table->string('titulo', 100);
+            $table->text('descripcion')->nullable();
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('foros');
     }

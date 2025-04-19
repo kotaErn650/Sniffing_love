@@ -6,21 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('politicas', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_politica');
+            $table->string('titulo', 100);
+            $table->text('contenido');
+            $table->enum('tipo', ['terminos', 'privacidad', 'cancelacion', 'seguridad', 'envio_informes']);
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->timestamp('fecha_actualizacion')->nullable()->useCurrentOnUpdate();
+            $table->string('version', 20);
+            $table->boolean('activa')->default(true);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('politicas');
     }

@@ -6,21 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('logs_sistema', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_log');
+            $table->enum('tipo', ['error', 'advertencia', 'info', 'debug']);
+            $table->string('modulo', 50);
+            $table->text('mensaje');
+            $table->text('datos')->nullable();
+            $table->foreignId('id_usuario')->nullable()->constrained('usuarios', 'id_usuario');
+            $table->string('ip', 45)->nullable();
+            $table->timestamp('fecha_creacion')->useCurrent();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('logs_sistema');
     }

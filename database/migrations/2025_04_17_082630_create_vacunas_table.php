@@ -6,21 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('vacunas', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_vacuna');
+            $table->string('nombre', 100);
+            $table->text('descripcion')->nullable();
+            $table->string('frecuencia_aplicacion', 50)->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('vacunas');
     }

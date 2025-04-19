@@ -6,21 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('temas_foro', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_tema');
+            $table->foreignId('id_foro')->constrained('foros', 'id_foro');
+            $table->foreignId('id_usuario_creador')->constrained('usuarios', 'id_usuario');
+            $table->string('titulo', 100);
+            $table->text('contenido');
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->timestamp('fecha_ultima_respuesta')->nullable();
+            $table->integer('respuestas')->default(0);
+            $table->boolean('cerrado')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('temas_foro');
     }

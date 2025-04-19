@@ -6,21 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('respuestas_foro', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_respuesta');
+            $table->foreignId('id_tema')->constrained('temas_foro', 'id_tema');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->text('contenido');
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->boolean('mejor_respuesta')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('respuestas_foro');
     }

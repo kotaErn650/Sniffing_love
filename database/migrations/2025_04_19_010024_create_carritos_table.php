@@ -8,16 +8,15 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('tipos_mascota', function (Blueprint $table) {
-            $table->id('id_tipo_mascota');
-            $table->string('nombre', 50);
-            $table->text('descripcion')->nullable();
+        Schema::create('carritos', function (Blueprint $table) {
+            $table->id('id_carrito');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('tipos_mascota');
+        Schema::dropIfExists('carritos');
     }
 };

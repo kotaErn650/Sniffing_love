@@ -6,21 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('configuraciones', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_configuracion');
+            $table->string('clave', 50)->unique();
+            $table->text('valor')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->boolean('editable')->default(true);
+            $table->timestamp('fecha_actualizacion')->nullable()->useCurrentOnUpdate();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('configuraciones');
     }

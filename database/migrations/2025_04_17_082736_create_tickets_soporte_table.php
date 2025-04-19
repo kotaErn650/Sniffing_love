@@ -6,21 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('tickets_soporte', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_ticket');
+            $table->foreignId('id_usuario')->constrained('usuarios', 'id_usuario');
+            $table->string('asunto', 100);
+            $table->text('descripcion');
+            $table->enum('estado', ['abierto', 'en_proceso', 'resuelto', 'cerrado'])->default('abierto');
+            $table->timestamp('fecha_creacion')->useCurrent();
+            $table->timestamp('fecha_actualizacion')->nullable()->useCurrentOnUpdate();
+            $table->enum('prioridad', ['baja', 'media', 'alta', 'urgente'])->default('media');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('tickets_soporte');
     }
