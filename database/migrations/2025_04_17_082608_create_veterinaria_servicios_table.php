@@ -19,7 +19,8 @@ return new class extends Migration
             $table->boolean('activo')->default(true);
             $table->timestamps();
             
-            $table->unique(['id_veterinaria', 'id_servicio', 'id_veterinario']);
+            // Cambia esto:
+            $table->unique(['id_veterinaria', 'id_servicio', 'id_veterinario'], 'vet_serv_vet_unique');
         });
     }
 
