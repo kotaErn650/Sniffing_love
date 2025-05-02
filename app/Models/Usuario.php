@@ -8,61 +8,46 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    // Especifica el nombre de la tabla
     protected $table = 'usuarios';
 
-    // Cambia la clave primaria si es diferente
     protected $primaryKey = 'id_usuario';
 
-    // Campos que se pueden llenar masivamente
     protected $fillable = [
         'id_rol',
         'nombre',
         'apellido',
         'email',
-        'contrasena', // Nota: Laravel espera 'password' por defecto
+        'contrasena',
         'telefono',
         'direccion',
         'fecha_nacimiento',
         'genero',
         'foto_perfil',
         'activo',
-        'verificado'
+        'verificado',
+        'token_verificacion',
     ];
 
-    // Campos ocultos en arrays
     protected $hidden = [
-        'contrasena', // Cambiado de 'password'
+        'contrasena',
         'remember_token',
-        'token_verificacion'
+        'token_verificacion',
     ];
 
-    // Casts de tipos
     protected $casts = [
         'email_verified_at' => 'datetime',
         'fecha_nacimiento' => 'date',
         'activo' => 'boolean',
-        'verificado' => 'boolean'
+        'verificado' => 'boolean',
     ];
 
-    /**
-     * Sobrescribe el nombre del campo de contraseña
-     * para que Laravel use 'contrasena' en lugar de 'password'
-     */
+    // Sobrescribir el nombre del campo de contraseña
     public function getAuthPassword()
     {
         return $this->contrasena;
-    }
-
-    /**
-     * Relación con el rol (si existe modelo Rol)
-     */
-    public function rol()
-    {
-        return $this->belongsTo(Rol::class, 'id_rol');
     }
 }

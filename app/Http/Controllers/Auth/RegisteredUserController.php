@@ -30,15 +30,32 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'nombre' => ['required', 'string', 'max:50'],
+            'apellido' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'telefono' => ['nullable', 'string', 'max:15'],
+            'direccion' => ['nullable', 'string', 'max:200'],
+            'fecha_nacimiento' => ['nullable', 'date'],
+            'genero' => ['nullable', 'in:Masculino,Femenino,Otro,Prefiero no decir'],
+            'foto_perfil' => ['nullable', 'image', 'max:2048'],
+            'terms' => ['required', 'accepted'],
         ]);
+        $roleId = $request->has('is_admin')? 1:2;
 
         $user = User::create([
-            'name' => $request->name,
+            'id_rol' => $roleId, // Rol por defecto
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'contrasena' => Hash::make($request->password),
+            'telefono' => $request->telefono,
+            'direccion' => $request->direccion,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'genero' => $request->genero,
+            'foto_perfil' => $request->file('foto_perfil') ? $request->file('foto_perfil')->store('perfiles', 'public') : null,
+            'activo' => true,
+            'verificado' => false,
         ]);
 
         event(new Registered($user));
