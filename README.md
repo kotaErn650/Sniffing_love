@@ -12,7 +12,7 @@ Realizar Checkout a su rama Correspondiente
 
 2🔜 División Equitativa de Tablas por Funcionalidades
         🥸William (11 tablas) - Módulo de Autenticación y Usuarios
-        1-roles
+        1-roles *
         2-usuarios
         3-politicas
         4-aceptacion_politicas
@@ -24,17 +24,17 @@ Realizar Checkout a su rama Correspondiente
         10-suscripciones_membresias
         11-configuraciones
         🥸
-        Jose (10 tablas) - Módulo de Veterinarias y Servicios
-        1-veterinarias
-        2-veterinarios
-        3-servicios
-        4-veterinaria_servicios
-        5-descuentos
-        6-aplicacion_descuentos
-        7-metodos_pago
-        8-pagos
-        9-eventos
-        10-registro_eventos
+        Jose (12 tablas) - Módulo de Veterinarias y Servicios
+        1-veterinarias  *
+        2-veterinarios  *
+        3-servicios     *
+        4-veterinaria_servicios *
+        5-descuentos    *
+        6-aplicacion_descuentos-
+        7-metodos_pago  *
+        8-pagos-
+        9-eventos       *
+        10-registro_eventos     *
         11-carrito de compras
         12-items del carrito
         🥸
