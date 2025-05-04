@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Veterinary\VeterinariasController;
+use App\Http\Controllers\Veterinary\ServiciosController;
+
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/veterinarias', [VeterinariasController::class, 'index'])->name('veterinarias.index');
+    Route::resource('veterinarias', VeterinariasController::class);
+
+
     //rutas para mis tablas
+    Route::resource('servicios', ServiciosController::class);
 });

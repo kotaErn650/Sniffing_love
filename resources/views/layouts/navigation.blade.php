@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-application-logo class="block h-9 w-auto fill-current text-red-800" />
                     </a>
                 </div>
 
@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('servicios.index')" :active="request()->routeIs('servicios.index')">
+                        {{ __('Servicios') }}
+                    </x-nav-link >
+                    <x-nav-link :href="route('veterinarias.index')" :active="request()->routeIs('veterinarias.index')">
+                        {{ __('Veterinarias') }}
+
+                    </x-nav-link>
+                    
+
                 </div>
             </div>
 
