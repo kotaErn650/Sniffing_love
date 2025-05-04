@@ -38,7 +38,6 @@ class User extends Authenticatable
     protected $hidden = [
         'contrasena', // Cambiado de 'password'
         'remember_token',
-        'token_verificacion'
     ];
 
     // Casts de tipos
