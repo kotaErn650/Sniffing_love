@@ -1,11 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VeterinariasController;
+use App\Http\Controllers\Veterinary\VeterinariasController;
 
-Route::middleware(['auth'])->prefix('jose')->name('jose.')->group(function () {
-    // Ruta para listar veterinarias
+Route::middleware(['auth'])->group(function () {
     Route::get('/veterinarias', [VeterinariasController::class, 'index'])->name('veterinarias.index');
-
     //rutas para mis tablas
 });

@@ -2,7 +2,6 @@
 
 namespace App\Models\Veterinary;
 
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,11 +10,10 @@ class Veterinarias extends Model
     use HasFactory;
 
     protected $table = 'veterinarias';
-    protected $primaryKey = 'id_veterinarias';
-
+    protected $primaryKey = 'id_veterinaria';
     public $timestamps = true;
 
-    protected $fillable =[
+    protected $fillable = [
         'nombre',
         'nit',
         'direccion',
@@ -30,11 +28,7 @@ class Veterinarias extends Model
         'activa',
         'id_usuario_admin',
         'calificacion_promedio',
-        'politica_cancelacion',
-        'created_at',
-        'updated_at'
-
-
+        'politica_cancelacion'
     ];
 
     protected $casts = [
@@ -48,7 +42,9 @@ class Veterinarias extends Model
         'activa' => 'boolean',
         'calificacion_promedio' => 'decimal:2'
     ];
-    public function usuarioAdmin(){
-        return $this->belongsTo(\App\Mosels\Usuaarios:: class, 'id_usuario_admin');
+
+    public function usuarioAdmin()
+    {
+        return $this->belongsTo(\App\Models\Usuarios::class, 'id_usuario_admin');
     }
 }
