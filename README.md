@@ -35,6 +35,8 @@ Realizar Checkout a su rama Correspondiente
         8-pagos
         9-eventos
         10-registro_eventos
+        11-carrito de compras
+        12-items del carrito
         🥸
         Janeer (10 tablas) - Módulo de Citas y Salud
         1-citas
