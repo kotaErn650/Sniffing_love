@@ -11,4 +11,5 @@ Route::middleware(['auth'])->group(function () {
 
     //rutas para mis tablas
     Route::resource('servicios', ServiciosController::class);
+    
 });
