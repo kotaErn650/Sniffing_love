@@ -4,6 +4,8 @@ Clonar Repo:
 git clone https://github.com/kotaErn650/Sniffing_love.git
 cd Sniffing_love
 
+url de la app http://54.152.81.175/
+
 Realizar Checkout a su rama Correspondiente 
 (git checkout willam )
 (git checkout janeer )
