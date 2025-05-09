@@ -6,7 +6,6 @@
     </x-slot>
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1>Listado de Veterinarias</h1>
                 <a href="{{ route('veterinarias.create') }}" class="btn btn-success">+ Nueva Veterinaria</a>
             </div>
 
@@ -14,6 +13,7 @@
                 <table class="table table-bordered table-hover">
                     <thead class="table-dark">
                         <tr>
+                            <th>click en el Enlace!!👇</a></th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">NIT</th>
@@ -29,11 +29,35 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                    @php
+                        $urls = [
+                            'https://www.nexdu.com/co/cali-vac/empresa/animal-center-veterinaria-eps-cali-470233',
+                            'https://comunidadamoranimal.com/turnos/',
+                            'https://huellitasfelices.com/adoptanos/',
+                            // ... más URLs en el mismo orden que las veterinarias
+                                ];
+
+                                $imagenes = [
+                                '/img/vete_center.jpg',
+                                '/img/vete_amorAnimal.png',
+                                '/img/vete_huellasFelices.jpg',
+                                // ... más imágenes en el mismo orden
+                                ];        
+                    @endphp
                         @forelse ($veterinarias as $v)
+                            
                             <tr>
+                                <td>
+                                    <a href="{{ $urls[$loop->index] ?? '#' }}">
+                                        <img src="{{ $imagenes[$loop->index] ?? '/img/default.jpg' }}" 
+                                            alt="Veterinaria" 
+                                            style="width: auto; height: auto; object-fit: cover;">
+                                    </a>
+                                </td>
                                 <td>{{ $v->id_veterinaria }}</td>
                                 <td>{{ $v->nombre }}</td>
-                                <td>{{ $v->nit ?? 'N/A' }}</td>
+                                <td>{{ $v->nit  ?? 'N/A ' }} </td>
                                 <td>{{ $v->direccion }}</td>
                                 <td>{{ $v->telefono }}</td>
                                 <td>{{ $v->email }}</td>
