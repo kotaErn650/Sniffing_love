@@ -10,9 +10,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Orden de cada tbla para vistas -->
-                <a href="#User" class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
-                    <h3 class="text-lg font-bold text-red-600 mb-2">👤 Usuarios</h3>
-                    <p class="text-black text-sm">/////////////////////</p>
+                <a href="{{route('usuarios.index')}}" class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Usuarios</h3>
+                    <p class="text-black text-sm">Gestiona los Usuarios Registrados.</p>
                 </a>
 
                 <a href="{{route('roles.index')}}" class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
