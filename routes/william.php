@@ -2,8 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\UsuariosController;
+use App\Http\Controllers\Auth\RolesController;
+use App\Http\Controllers\Auth\PoliticasController;
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+    Route::resource('usuarios', UsuariosController::class);
+
+
+
+    Route::resource('roles', RolesController::class);
+    Route::resource('politicas', PoliticasController::class);
+
+    
     //rutas para mis tablas
 });

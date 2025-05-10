@@ -45,6 +45,6 @@ class Veterinarias extends Model
 
     public function usuarioAdmin()
     {
-        return $this->belongsTo(\App\Models\Usuarios::class, 'id_usuario_admin');
+        return $this->belongsTo(\App\Models\User::class, 'id_usuario_admin');
     }
 }
