@@ -10,8 +10,8 @@ class PoliticasController extends Controller
 {
     public function index()
     {
-        $politicas = Politicas::all(); 
-    return view('politicas.index', compact('politicas'));
+        $politicas = Politicas::all();
+        return view('politicas.index', compact('politicas'));
     }
 
     public function create()

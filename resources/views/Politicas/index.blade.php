@@ -44,6 +44,11 @@
                             <td>
                                 <a href="{{ route('politicas.show', $politica->id_politica) }}" class="btn btn-sm btn-primary">Ver</a>
                                 <a href="{{ route('politicas.edit', $politica->id_politica) }}" class="btn btn-sm btn-warning">Editar</a>
+                                <form action="{{ route('politicas.destroy', $politica->id_politica) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar esta política?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger text-white">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @empty

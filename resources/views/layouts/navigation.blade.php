@@ -30,6 +30,9 @@
                     <x-nav-link :href="route('politicas.index')" :active="request()->routeIs('politicas.index')">
                         {{ __('Politicas') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">
+                        {{ __('Aceptacion De Politicas') }}
+                    </x-nav-link>
                     
                     
 

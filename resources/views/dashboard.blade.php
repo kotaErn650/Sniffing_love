@@ -36,6 +36,11 @@
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Politicas</h3>
                     <p class="text-black text-sm">Gestiona todos las politicas registradas.</p>
                 </a>
+
+                <a href="{{route('aceptacionpoliticas.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Aceptacion De Politicas</h3>
+                    <p class="text-black text-sm">Reistra cuantos 7y que usuarios han aceptado la politicas dentro de la aplicacion.</p>
+                </a>
                 
 
 

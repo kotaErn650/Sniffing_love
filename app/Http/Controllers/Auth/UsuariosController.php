@@ -4,30 +4,24 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Auth\Usuarios;
+use App\Models\Auth\Roles;
+use App\Models\Auth\AceptacionPoliticas;
 use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
 {
-    /**
-     * Muestra un listado de todos los usuarios.
-     */
     public function index()
     {
-        $usuarios = Usuarios::all();
+        $usuarios = Usuarios::with('rol')->get();
         return view('usuarios.index', compact('usuarios'));
     }
 
-    /**
-     * Muestra el formulario de creación de un nuevo usuario.
-     */
     public function create()
     {
-        return view('usuarios.create');
+        $roles = Roles::all();
+        return view('usuarios.create', compact('roles'));
     }
 
-    /**
-     * Guarda un nuevo usuario en la base de datos.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -53,27 +47,20 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.index')->with('success', 'Usuario creado exitosamente.');
     }
 
-    /**
-     * Muestra los detalles de un usuario.
-     */
     public function show($id)
     {
-        $usuario = Usuarios::findOrFail($id);
+        $usuario = Usuarios::with('rol')->findOrFail($id);
         return view('usuarios.show', compact('usuario'));
     }
 
-    /**
-     * Muestra el formulario para editar un usuario existente.
-     */
     public function edit($id)
     {
         $usuario = Usuarios::findOrFail($id);
-        return view('usuarios.edit', compact('usuario'));
+        $roles = Roles::all();
+
+        return view('usuarios.edit', compact('usuario', 'roles'));
     }
 
-    /**
-     * Actualiza la información de un usuario.
-     */
     public function update(Request $request, $id)
     {
         $usuario = Usuarios::findOrFail($id);
@@ -91,17 +78,20 @@ class UsuariosController extends Controller
             'activo' => 'boolean',
         ]);
 
+        if ($request->filled('contrasena')) {
+            $data['contrasena'] = bcrypt($request->contrasena);
+        }
+
         $usuario->update($data);
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado correctamente.');
     }
 
-    /**
-     * Elimina un usuario.
-     */
     public function destroy($id)
     {
         $usuario = Usuarios::findOrFail($id);
+
+        AceptacionPoliticas::where('id_usuario', $usuario->id_usuario)->delete();
         $usuario->delete();
 
         return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente.');

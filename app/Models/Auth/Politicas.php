@@ -11,6 +11,7 @@ class Politicas extends Model
 
     protected $table = 'politicas';
     protected $primaryKey = 'id_politica';
+    public $timestamps = true;
 
     protected $fillable = [
         'titulo',
@@ -22,5 +23,11 @@ class Politicas extends Model
         'activa',
     ];
 
-    public $timestamps = true;
+    protected $casts = [
+        'fecha_creacion' => 'datetime',
+        'fecha_actualizacion' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'activa' => 'boolean',
+    ];
 }

@@ -11,15 +11,19 @@
             <a href="{{ route('roles.create') }}" class="btn btn-success">+ Nuevo Rol</a>
         </div>
 
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre del Rol</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Fecha de Creación</th>
-                        <th scope="col">Acciones</th>
+                        <th>ID</th>
+                        <th>Nombre del Rol</th>
+                        <th>Descripción</th>
+                        <th>Fecha de Creación</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +36,11 @@
                             <td>
                                 <a href="{{ route('roles.show', $role->id_rol) }}" class="btn btn-sm btn-primary">Ver</a>
                                 <a href="{{ route('roles.edit', $role->id_rol) }}" class="btn btn-sm btn-warning">Editar</a>
-                                
+                                <form action="{{ route('roles.destroy', $role->id_rol) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar este rol?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger text-white" type="submit">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @empty

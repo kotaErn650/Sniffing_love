@@ -16,50 +16,64 @@
                     @method('PUT')
 
                     <div class="mb-3">
+                        <label for="id_rol" class="form-label">Rol</label>
+                        <select name="id_rol" id="id_rol" class="form-control" required>
+                            @foreach ($roles as $rol)
+                                <option value="{{ $rol->id_rol }}" {{ old('id_rol', $usuario->id_rol) == $rol->id_rol ? 'selected' : '' }}>
+                                    {{ $rol->nombre_rol }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('id_rol') <div class="text-danger small">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" required
-                               value="{{ old('nombre', $usuario->nombre) }}">
+                        <input type="text" name="nombre" id="nombre" class="form-control" required value="{{ old('nombre', $usuario->nombre) }}">
+                        @error('nombre') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" class="form-control" required
-                               value="{{ old('apellido', $usuario->apellido) }}">
+                        <input type="text" name="apellido" id="apellido" class="form-control" required value="{{ old('apellido', $usuario->apellido) }}">
+                        @error('apellido') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" name="email" id="email" class="form-control" required
-                               value="{{ old('email', $usuario->email) }}">
+                        <input type="email" name="email" id="email" class="form-control" required value="{{ old('email', $usuario->email) }}">
+                        @error('email') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" name="telefono" id="telefono" class="form-control"
-                               value="{{ old('telefono', $usuario->telefono) }}">
+                        <input type="text" name="telefono" id="telefono" class="form-control" value="{{ old('telefono', $usuario->telefono) }}">
+                        @error('telefono') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" name="direccion" id="direccion" class="form-control"
-                               value="{{ old('direccion', $usuario->direccion) }}">
+                        <input type="text" name="direccion" id="direccion" class="form-control" value="{{ old('direccion', $usuario->direccion) }}">
+                        @error('direccion') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
                         <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control"
                                value="{{ old('fecha_nacimiento', $usuario->fecha_nacimiento ? $usuario->fecha_nacimiento->format('Y-m-d') : '') }}">
+                        @error('fecha_nacimiento') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="genero" class="form-label">Género</label>
                         <select name="genero" id="genero" class="form-control">
-                            @foreach (['Masculino', 'Femenino', 'Otro', 'Prefiero no decirlo'] as $genero)
-                                <option value="{{ $genero }}" {{ old('genero', $usuario->genero) === $genero ? 'selected' : '' }}>
-                                    {{ $genero }}
+                            @foreach (['Masculino', 'Femenino', 'Otro', 'Prefiero no decirlo'] as $gen)
+                                <option value="{{ $gen }}" {{ old('genero', $usuario->genero) === $gen ? 'selected' : '' }}>
+                                    {{ $gen }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('genero') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="mb-3">
@@ -68,10 +82,13 @@
                             <option value="1" {{ old('activo', $usuario->activo) == 1 ? 'selected' : '' }}>Sí</option>
                             <option value="0" {{ old('activo', $usuario->activo) == 0 ? 'selected' : '' }}>No</option>
                         </select>
+                        @error('activo') <div class="text-danger small">{{ $message }}</div> @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-warning">Actualizar Usuario</button>
-                    <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-warning">Actualizar Usuario</button>
+                        <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">Cancelar</a>
+                    </div>
                 </form>
             </div>
         </div>
