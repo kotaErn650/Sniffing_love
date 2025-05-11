@@ -29,14 +29,14 @@
                 </div>
 
                 <!-- Mostrar solo si el usuario tiene permisos -->
-                @can('edit', $servicio)
+                @if (Auth::user()->id_rol == 1)
                     <a href="{{ route('servicios.edit', $servicio->id_servicio) }}" class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded">
                         <i class="fas fa-edit"></i> Editar
                     </a>
-                @endcan
+                @endif
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1  md:grid-cols-1 lg:grid-cols-1 gap-6">
                 <div class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 flex" style="background-color: #EAA429; border: 2px solid #D8931A;">
                     <!-- Contenedor de imagen -->
                     <div class="w-1/3 h-full flex-shrink-0 bg-amber-500 bg-opacity-90">
@@ -63,9 +63,17 @@
                             </span>
                         </div>
 
+
+
                         <div class="flex justify-between mt-3">
                             <!-- Mostrar solo si el usuario tiene permisos para eliminar -->
-                            @can('delete', $servicio)
+                             <a href="{{ route('servicios.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </a>
+                            @if (Auth::user()->id_rol == 1)
+                                <a href="{{ route('servicios.create') }}" class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+                                    <i class="fas fa-plus mr-2"></i> Nuevo Servicio
+                                </a>
                                 <form action="{{ route('servicios.destroy', $servicio->id_servicio) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este servicio?')">
                                     @csrf
                                     @method('DELETE')
@@ -73,11 +81,9 @@
                                         <i class="fas fa-trash"></i> Eliminar
                                     </button>
                                 </form>
-                            @endcan
+                            @endif
 
-                            <a href="{{ route('servicios.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
-                                <i class="fas fa-arrow-left"></i> Volver
-                            </a>
+
                         </div>
                     </div>
                 </div>
