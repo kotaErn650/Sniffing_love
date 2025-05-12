@@ -5,21 +5,21 @@
         </h1>
     </x-slot>
 
-    <div class="py-8" style="background-color: #F8F1E0;">
+    <div class="py-8 bg-black" style="background-image: url('/img/cielo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-8 flex justify-between items-center">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-800">Listado de Servicios</h2>
-                    <p class="text-gray-600 mt-1">Administra todos los servicios veterinarios disponibles</p>
+                    <h2 class="text-2xl font-bold text-white">Listado de Servicios</h2>
+                    <p class="text-gray-50 mt-1">Administra todos los servicios veterinarios disponibles</p>
                 </div>
-                @can('create', App\Models\Servicio::class)
+                @if (Auth::user()->id_rol == 1)
                     <a href="{{ route('servicios.create') }}" class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
                         <i class="fas fa-plus mr-2"></i> Nuevo Servicio
                     </a>
-                @endcan
+                @endif
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 xl:grid-cols-2 md:grid-cols-1 gap-6">
                 @php
                     $imagenesServicios = [
                         'Consulta General' => 'img/serve_consulta.jpg',
@@ -59,7 +59,7 @@
                                     <h3>Tiempo de Respuesta</h3>
                                     {{ $servicio->duracion_estimada }} min
                                 </span>
-                                <span class="bg-black bg-opacity-30 px-2 py-1 rounded">
+                                <span class="bg-black bg-opacity-30 px-2 py-1 rounded gap-2">
                                     <H2>Categoria: </H2>{{ $servicio->categoria ?? 'Sin categoría' }}
                                 </span>
                             </div>
@@ -68,20 +68,20 @@
                                 <a href="{{ route('servicios.show', $servicio->id_servicio) }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
                                     <i class="fas fa-eye"></i> Ver
                                 </a>
-                                @can('update', $servicio)
-                                    <a href="{{ route('servicios.edit', $servicio->id_servicio) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs">
+                               @if (Auth::user()->id_rol == 1)
+                                    <a href="{{ route('servicios.edit', $servicio->id_servicio) }}" class="bg-yellow-500 hover:bg-yellow-600 hover:text-black  text-black  px-4 py-2 rounded">
                                         <i class="fas fa-edit"></i> Editar
                                     </a>
-                                @endcan
-                                @can('delete', $servicio)
+                                
+                                
                                     <form action="{{ route('servicios.destroy', $servicio->id_servicio) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este servicio?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-xs">
+                                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded ">
                                             <i class="fas fa-trash"></i> Eliminar
                                         </button>
                                     </form>
-                                @endcan
+                                @endif
                             </div>
                         </div>
                     </div>
