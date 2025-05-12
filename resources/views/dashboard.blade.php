@@ -57,6 +57,10 @@
                     <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
                 </a>
                 
+                <a href="{{route('referidos.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Referidos</h3>
+                    <p class="text-black text-sm">Registra los usuarios Referidos por otros.</p>
+                </a>
 
 
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\AceptacionPoliticasController;
 use App\Http\Controllers\Auth\NotificacionesController;
 use App\Http\Controllers\Auth\PuntosRecompensaController;
 use App\Http\Controllers\Auth\TransaccionesPuntosController;
+use App\Http\Controllers\Auth\ReferidosController;
 
 
     Route::middleware(['auth'])->group(function () {
@@ -19,6 +20,7 @@ use App\Http\Controllers\Auth\TransaccionesPuntosController;
     Route::resource('notificaciones', NotificacionesController::class);
     Route::resource('puntosrecompensa', PuntosRecompensaController::class);
     Route::resource('transaccionespuntos', TransaccionesPuntosController::class);
+    Route::resource('referidos', ReferidosController::class);
     
     
 });

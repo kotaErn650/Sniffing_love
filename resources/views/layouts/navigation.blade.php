@@ -42,10 +42,11 @@
                     <x-nav-link :href="route('transaccionespuntos.index')" :active="request()->routeIs('transaccionespuntos.index')">
                         {{ __('Transacciones Puntos') }}
                     </x-nav-link>
-                     
+                     <x-nav-link :href="route('referidos.index')" :active="request()->routeIs('referidos.index')">
+                        {{ __('Referidos') }}
+                    </x-nav-link>
                     
                     
-
                 </div>
             </div>
 
