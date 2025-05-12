@@ -5,12 +5,12 @@
         </h1>
     </x-slot>
 
-    <div class="py-8" >
+    <div class="py-8 bg-black" style="background-image: url('/img/cielo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-8 flex justify-between items-center">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-800">Listado de Servicios</h2>
-                    <p class="text-gray-600 mt-1">Administra todos los servicios veterinarios disponibles</p>
+                    <h2 class="text-2xl font-bold text-white">Listado de Servicios</h2>
+                    <p class="text-gray-50 mt-1">Administra todos los servicios veterinarios disponibles</p>
                 </div>
                 @if (Auth::user()->id_rol == 1)
                     <a href="{{ route('servicios.create') }}" class="btn btn-success bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">

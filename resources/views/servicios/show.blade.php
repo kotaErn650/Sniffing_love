@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+<x-app-layout >
+    <x-slot  name="header" class="bg-amber-600">
         <h1 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Detalle del Servicio') }}
         </h1>
@@ -20,12 +20,12 @@
         ];
     @endphp
 
-    <div class="py-8" style="background-color: #F8F1E0;">
+     <div class="py-8 bg-black" style="background-image: url('/img/logo_body.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-8 flex justify-between items-center">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-800">Detalle del Servicio</h2>
-                    <p class="text-gray-600 mt-1">Consulta los detalles completos de este servicio veterinario</p>
+                    <h2 class="text-2xl font-bold text-gray-50">Detalle del Servicio</h2>
+                    <p class="text-white mt-1">Consulta los detalles completos de este servicio veterinario</p>
                 </div>
 
                 <!-- Mostrar solo si el usuario tiene permisos -->
