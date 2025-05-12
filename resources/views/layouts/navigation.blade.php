@@ -39,6 +39,9 @@
                     <x-nav-link :href="route('puntosrecompensa.index')" :active="request()->routeIs('puntosrecompensa.index')">
                         {{ __('Puntos Recompensa') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('transaccionespuntos.index')" :active="request()->routeIs('transaccionespuntos.index')">
+                        {{ __('Transacciones Puntos') }}
+                    </x-nav-link>
                      
                     
                     
