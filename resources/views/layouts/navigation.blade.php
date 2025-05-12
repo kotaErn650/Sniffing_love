@@ -36,6 +36,9 @@
                     <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                         {{ __('Notificaciones') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('puntosrecompensa.index')" :active="request()->routeIs('puntosrecompensa.index')">
+                        {{ __('Puntos Recompensa') }}
+                    </x-nav-link>
                      
                     
                     

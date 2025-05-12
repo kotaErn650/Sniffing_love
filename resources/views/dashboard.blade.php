@@ -44,7 +44,12 @@
 
                 <a href="{{route('notificaciones.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Notificaciones</h3>
-                    <p class="text-black text-sm">Reistra las notificaciones aceptadas por los usuarios.</p>
+                    <p class="text-black text-sm">Registra las notificaciones aceptadas por los usuarios.</p>
+                </a>
+
+                <a href="{{route('puntosrecompensa.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Puntos Recompensa</h3>
+                    <p class="text-black text-sm">Registra los puntos de recompensa para los usuarios.</p>
                 </a>
                 
 
