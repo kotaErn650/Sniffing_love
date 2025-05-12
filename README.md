@@ -19,8 +19,8 @@ Realizar Checkout a su rama Correspondiente
         5-notificaciones *
         6-puntos_recompensa *
         7-transacciones_puntos *
-        8-referidos
-        9-membresias
+        8-referidos *
+        9-membresias *
         10-suscripciones_membresias
         11-configuraciones
         🥸
