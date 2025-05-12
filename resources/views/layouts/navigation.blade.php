@@ -36,6 +36,7 @@
                     <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                         {{ __('Notificaciones') }}
                     </x-nav-link>
+                     
                     
                     
 
