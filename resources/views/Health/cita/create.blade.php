@@ -97,13 +97,13 @@
         <label for="fecha_hora">Fecha y hora:</label>
         <input type="datetime-local" name="fecha_hora" required><br>
 
-        <label for="estado">Estado:</label>
+        <label for="estado" >Estado:</label>
         <select name="estado" required>
-            <option value="pendiente">Pendiente</option>
-            <option value="confirmada">Confirmada</option>
-            <option value="completada">Completada</option>
-            <option value="cancelada">Cancelada</option>
-            <option value="no_asistio">No asistió</option>
+            <option  value="pendiente">Pendiente</option>
+            <option  value="confirmada">Confirmada</option>
+            <option  value="completada">Completada</option>
+            <option  value="cancelada">Cancelada</option>
+            <option  value="no_asistio">No asistió</option>
         </select><br>
 
         <label for="motivo">Motivo:</label>

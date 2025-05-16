@@ -33,6 +33,16 @@
                     <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">
                         {{ __('Aceptacion De Politicas') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">
+                        {{ __('Aceptacion De Politicas') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('citas.index')" :active="request()->routeIs('citas.index')">
+                        {{ __('Citas') }}
+                    </x-nav-link>
+
+
+
+
                 </div>
             </div>
 

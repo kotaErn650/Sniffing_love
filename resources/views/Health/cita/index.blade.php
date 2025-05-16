@@ -6,16 +6,33 @@
     <style>
         
         body {
-            
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 20px;
 
-            
-            
+              <a href="{{ route('citas.index') }}"
+   style="background-image: url('/img/sspi_header.svg');
+          background-size: cover;
+          background-position: center;
+          display: block;
+          padding: 30px;
+          margin-bottom: 20px;
+          text-align: center;
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+          border-radius: 12px;">
+    Citas
+</a>
         }
        
+        .init {
+            color: black;
+
+        
+
+        }
+        
+        .eestado{
+            color: black;
+        }
 
 
         h1 {
@@ -65,7 +82,28 @@
             border-radius: 8px;
             cursor: pointer;
         }
+        .variables{
+            color: #000000
+        }
+            .ver-btn {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.ver-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    text-decoration: none;
+    color: white;
+}
+
+        
 
     </style>
 </head>
@@ -79,9 +117,9 @@
     <a href="{{ route('citas.create') }}">Crear nueva cita</a>
     <ul>
         @foreach ($citas as $cita)
-            <li>
-                <strong>Cita ID:</strong> {{ $cita->id_cita }} <br>
-                <strong>Estado:</strong> {{ $cita->estado }} <br>
+            <li class="variables">
+                <strong class="init">Cita ID:</strong> {{ $cita->id_cita }} <br>
+                <strong class="init">Estado:</strong> {{ $cita->estado }} <br>
                 <a href="{{ route('citas.show', $cita->id_cita) }}">Ver</a>
                 <a href="{{ route('citas.edit', $cita->id_cita) }}">Editar</a>
                 <form action="{{ route('citas.destroy', $cita->id_cita) }}" method="POST">

@@ -42,9 +42,9 @@
                     <p class="text-black text-sm">Reistra cuantos y que usuarios han aceptado la politicas dentro de la aplicacion.</p>
                 </a>
 
-                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
-                    <p class="text-black text-sm">/////////////////////////////</p>
+                <a href="{{ route('citas.index') }}" style="background-image: url('/img/sspi_header.svg')" class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Citas</h3>
+                    <p class="text-black text-sm">Agenda tu cita para tu Mascota</p>
                 </a>
                 <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
