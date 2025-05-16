@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Health\CitaController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +22,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/jose.php';
 require __DIR__.'/william.php';
+
+
+ //Rutas Citas
+
+ Route::resource('citas', CitaController::class);
