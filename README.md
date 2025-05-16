@@ -13,14 +13,14 @@ Realizar Checkout a su rama Correspondiente
 2🔜 División Equitativa de Tablas por Funcionalidades
         🥸William (11 tablas) - Módulo de Autenticación y Usuarios
         1-roles *
-        2-usuarios
-        3-politicas
-        4-aceptacion_politicas
-        5-notificaciones
-        6-puntos_recompensa
-        7-transacciones_puntos
-        8-referidos
-        9-membresias
+        2-usuarios *
+        3-politicas *
+        4-aceptacion_politicas *
+        5-notificaciones *
+        6-puntos_recompensa *
+        7-transacciones_puntos *
+        8-referidos *
+        9-membresias *
         10-suscripciones_membresias
         11-configuraciones
         🥸
@@ -35,7 +35,7 @@ Realizar Checkout a su rama Correspondiente
         8-pagos-
         9-eventos       *
         10-registro_eventos     *
-        11-carrito de compras
+        11-carrito de compras 
         12-items del carrito
         🥸
         Janeer (10 tablas) - Módulo de Citas y Salud
