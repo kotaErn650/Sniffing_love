@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\MembresiasController;
 
     Route::middleware(['auth'])->group(function () {
 
+
     Route::resource('usuarios', UsuariosController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('politicas', PoliticasController::class);
@@ -23,5 +24,6 @@ use App\Http\Controllers\Auth\MembresiasController;
     Route::resource('transaccionespuntos', TransaccionesPuntosController::class);
     Route::resource('referidos', ReferidosController::class);
     Route::resource('membresias', MembresiasController::class);
+
     
 });
