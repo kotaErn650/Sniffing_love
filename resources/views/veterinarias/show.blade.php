@@ -52,7 +52,8 @@
             'Esterilizacion Felina'=> 'img/servi_esteriGat.jpg',
             'Examen de Sangre' => 'img/servi_sangr.jpg',
             'Radiografias'=> 'img/servi_Radi.jpg',
-            'Atencion de Emergencia' => 'img/servi_urge.jpg'
+            'Atencion de Emergencia' => 'img/servi_urge.jpg',
+            'Centro veterinaria Villa Colombia'=> 'img/vete_villacol.jpg'
         ];
     @endphp
     <header class="mb-4 md:mb-8 text-center">
