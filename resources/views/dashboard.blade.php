@@ -41,7 +41,20 @@
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Aceptacion De Politicas</h3>
                     <p class="text-black text-sm">Reistra cuantos y que usuarios han aceptado la politicas dentro de la aplicacion.</p>
                 </a>
+                <a href="{{route('notificaciones.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Notificaciones</h3>
+                    <p class="text-black text-sm">Registra las notificaciones aceptadas por los usuarios.</p>
+                </a>
 
+                <a href="{{route('puntosrecompensa.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Puntos Recompensa</h3>
+                    <p class="text-black text-sm">Registra los puntos de recompensa para los usuarios.</p>
+                </a>
+
+                <a href="{{route('transaccionespuntos.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Transacciones Puntos</h3>
+                    <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
+                </a>
                 <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
                     <p class="text-black text-sm">/////////////////////////////</p>
@@ -81,6 +94,15 @@
                 </a>
                 
                 
+                <a href="{{route('referidos.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Referidos</h3>
+                    <p class="text-black text-sm">Registra los usuarios Referidos por otros.</p>
+                </a>
+
+                <a href="{{route('membresias.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Membresias</h3>
+                    <p class="text-black text-sm">Registra loas membresias accesibles para los usuarios.</p>
+                </a>
 
 
 

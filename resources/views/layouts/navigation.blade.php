@@ -33,6 +33,23 @@
                     <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">
                         {{ __('Aceptacion De Politicas') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
+                        {{ __('Notificaciones') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('puntosrecompensa.index')" :active="request()->routeIs('puntosrecompensa.index')">
+                        {{ __('Puntos Recompensa') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('transaccionespuntos.index')" :active="request()->routeIs('transaccionespuntos.index')">
+                        {{ __('Transacciones Puntos') }}
+                    </x-nav-link>
+                     <x-nav-link :href="route('referidos.index')" :active="request()->routeIs('referidos.index')">
+                        {{ __('Referidos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('membresias.index')" :active="request()->routeIs('membresias.index')">
+                        {{ __('Membresias') }}
+                    </x-nav-link>
+                   
                 </div>
             </div>
 
