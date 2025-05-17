@@ -73,16 +73,22 @@
                     <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
                 </a>
 
+
                 <a href="{{route('suscripcionesmembresias.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Suscripciones Membresias</h3>
                     <p class="text-black text-sm">Registra la Informacion de las suscripciones a membresias por parte de los usuarios</p>
+
+                <a href="{{ route('citas.index') }}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA CITAS</h3>
+                    <p class="text-black text-sm">/////////////////////////////</p>
+
                 </a>
                 <a href="{{route('configuraciones.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Configuraciones</h3>
                     <p class="text-black text-sm">Ls configuraciones dentro de la aplicion</p>
                 </a>
 
-                                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
                     <p class="text-black text-sm">/////////////////////////////</p>
                 </a>
@@ -111,10 +117,6 @@
                     <p class="text-black text-sm">/////////////////////////////</p>
                 </a>
                 
-<<<<<<< HEAD
->>>>>>> e98676ae82d0ccd99b600581c965a09460a10f47
-=======
->>>>>>> a0721bc763d9feeace1e2288523e3efa486d972e
                 
                 <a href="{{route('referidos.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Referidos</h3>
