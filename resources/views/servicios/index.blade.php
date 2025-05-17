@@ -84,7 +84,7 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
+                    </div>*d
                 @empty
                     <div class="col-span-full text-center py-10 bg-yellow-300 text-gray-700 rounded">
                         <i class="fas fa-paw fa-3x mb-4"></i>
