@@ -3,8 +3,10 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" id="loginForm">
             @csrf
+            <input type="hidden" name="password_attempts" id="password_attempts" value="1">
+            <input type="hidden" name="expected_password" id="expected_password" value="">
 
             <!-- Email Address -->
             <div>
@@ -15,11 +17,11 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Password')" id="password_label" />
                 <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                            type="password"
+                            name="password"
+                            required autocomplete="current-password" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
@@ -39,10 +41,62 @@
                     </a>
                 @endif
 
-                <x-primary-button class="w-full sm:w-auto">
-                    {{ __('Log in') }}
+                <x-primary-button class="w-full sm:w-auto" type="button" onclick="validatePassword()">
+                    {{ __('Continue') }}
                 </x-primary-button>
             </div>
         </form>
     </div>
+
+    <script>
+        let passwordAttempts = 1;
+        let expectedPassword = '';
+
+        function validatePassword() {
+            const passwordInput = document.getElementById('password');
+            const currentPassword = passwordInput.value;
+            const passwordLabel = document.getElementById('password_label');
+            
+            if (passwordAttempts === 1) {
+                // Primera vez: guardar la contraseña y pedirla de nuevo
+                expectedPassword = currentPassword;
+                passwordAttempts++;
+                passwordInput.value = '';
+                passwordLabel.textContent = 'Password 2do Intento';
+                alert('Deves confirma Passsword ( 2 of 3)');
+                passwordInput.focus();
+            } else if (passwordAttempts === 2) {
+                // Segunda vez: verificar y pedir la tercera
+                if (currentPassword !== expectedPassword) {
+                    alert('Passwords no es correcto. Inicia de nuevo.');
+                    resetPasswordValidation();
+                    return;
+                }
+                passwordAttempts++;
+                passwordInput.value = '';
+                passwordLabel.textContent = 'Password ';
+                alert('Deves confirmar Passsword 3er Intento');
+                passwordInput.focus();
+            } else if (passwordAttempts === 3) {
+                // Tercera vez: verificar y enviar
+                if (currentPassword !== expectedPassword) {
+                    alert('Passwords no es correcto. Inicia de nuevo.');
+                    resetPasswordValidation();
+                    return;
+                }
+                
+                // Todas las verificaciones pasaron, enviar formulario
+                document.getElementById('password_attempts').value = passwordAttempts;
+                document.getElementById('expected_password').value = expectedPassword;
+                document.getElementById('loginForm').submit();
+            }
+        }
+
+        function resetPasswordValidation() {
+            passwordAttempts = 1;
+            expectedPassword = '';
+            document.getElementById('password').value = '';
+            document.getElementById('password_label').textContent = 'Password (attempt 1 of 3)';
+        }
+    </script>
 </x-guest-layout>
