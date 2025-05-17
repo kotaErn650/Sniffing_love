@@ -55,8 +55,8 @@
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Transacciones Puntos</h3>
                     <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
                 </a>
-                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
+                <a href="{{ route('citas.index') }}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA CITAS</h3>
                     <p class="text-black text-sm">/////////////////////////////</p>
                 </a>
                 <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
@@ -64,7 +64,7 @@
                     <p class="text-black text-sm">/////////////////////////////</p>
                 </a>
 
-                                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
                     <p class="text-black text-sm">/////////////////////////////</p>
                 </a>

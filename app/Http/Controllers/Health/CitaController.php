@@ -11,12 +11,12 @@ class CitaController extends Controller
     public function index()
     {
         $citas = Cita::all();
-        return view('health.cita.index', compact('citas'));
+        return view('citas.index', compact('citas'));
     }
 
     public function create()
     {
-        return view('health.cita.create');
+        return view('citas.create');
     }
 
     public function store(Request $request)
@@ -28,13 +28,13 @@ class CitaController extends Controller
     public function show($id)
     {
         $cita = Cita::findOrFail($id);
-        return view('health.cita.show', compact('cita'));
+        return view('citas.show', compact('cita'));
     }
 
     public function edit($id)
     {
         $cita = Cita::findOrFail($id);
-        return view('health.cita.edit', compact('cita'));
+        return view('citas.edit', compact('cita'));
     }
 
     public function update(Request $request, $id)
