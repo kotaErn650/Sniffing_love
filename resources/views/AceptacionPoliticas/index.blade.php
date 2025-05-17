@@ -8,7 +8,9 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1>Listado de Aceptaciones</h1>
+        @if (Auth::user()->id_rol == 1)
             <a href="{{ route('aceptacionpoliticas.create') }}" class="btn btn-success">+ Nueva Aceptación</a>
+        @endif
         </div>
 
         @if(session('success'))
@@ -41,12 +43,14 @@
                             <td>{{ $aceptacion->updated_at ?? '—' }}</td>
                             <td>
                                 <a href="{{ route('aceptacionpoliticas.show', $aceptacion->id_aceptacion) }}" class="btn btn-sm btn-primary">Ver</a>
+                            @if (Auth::user()->id_rol == 1)
                                 <a href="{{ route('aceptacionpoliticas.edit', $aceptacion->id_aceptacion) }}" class="btn btn-sm btn-warning">Editar</a>
                                 <form action="{{ route('aceptacionpoliticas.destroy', $aceptacion->id_aceptacion) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar esta aceptación?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger text-white" type="submit">Eliminar</button>
                                 </form>
+                            @endif
                             </td>
                         </tr>
                     @empty

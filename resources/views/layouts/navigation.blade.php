@@ -20,19 +20,20 @@
 
                 <!-- Navigation Links -->
                 <div class="flex items-center text-black font-bold">
-                    <details class="relative">
-                        <summary class="cursor-pointer px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-gray-700 group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                            <span>Menú</span>
-                        </summary>
+                    <details class="relative group w-max">
+                    <summary class="cursor-pointer px-4 py-2 bg-gray-200 rounded hover:bg-orange-600 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-900 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </summary>
                         <div class="absolute z-10 mt-2 w-64 bg-white border border-gray-300 rounded shadow-lg space-y-1 p-2">
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{ __('Dashboard') }}</x-nav-link>
-                            <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">{{ __('Usuarios') }}</x-nav-link>
                             <x-nav-link :href="route('servicios.index')" :active="request()->routeIs('servicios.index')">{{ __('Servicios') }}</x-nav-link>
                             <x-nav-link :href="route('veterinarias.index')" :active="request()->routeIs('veterinarias.index')">{{ __('Veterinarias') }}</x-nav-link>
-                            <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">{{ __('Roles') }}</x-nav-link>
+                                @if (Auth::user()->id_rol == 1)
+                                    <x-nav-link :href="route('usuarios.index')" :active="request()->routeIs('usuarios.index')">{{ __('Usuarios') }}</x-nav-link>    
+                                    <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">{{ __('Roles') }}</x-nav-link>
+                                @endif
                             <x-nav-link :href="route('politicas.index')" :active="request()->routeIs('politicas.index')">{{ __('Políticas') }}</x-nav-link>
                             <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">{{ __('Aceptación de Políticas') }}</x-nav-link>
                             <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">{{ __('Notificaciones') }}</x-nav-link>

@@ -25,7 +25,9 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('puntosrecompensa.index') }}" class="btn btn-secondary">Volver</a>
+            @if (Auth::user()->id_rol == 1)    
                 <a href="{{ route('puntosrecompensa.edit', $puntosrecompensa->id_punto) }}" class="btn btn-warning">Editar</a>
+            @endif
             </div>
         </div>
     </div>

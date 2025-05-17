@@ -48,9 +48,11 @@
                     <dt class="col-sm-3">Verificado</dt>
                     <dd class="col-sm-9">{{ $usuario->verificado ? 'Sí' : 'No' }}</dd>
                 </dl>
-
+            @if (Auth::user()->id_rol == 1)
                 <a href="{{ route('usuarios.edit', $usuario->id_usuario) }}" class="btn btn-warning">Editar</a>
+            @endif
                 <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">Volver al listado</a>
+            
             </div>
         </div>
     </div>
