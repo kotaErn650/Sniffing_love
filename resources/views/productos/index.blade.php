@@ -56,6 +56,7 @@
                     class="btn btn-sm btn-outline-primary">
                         <i class="fas fa-eye"> Ver</i>
                     </a>
+                     @if (Auth::user()->id_rol == 1)
                     <a href="{{ route('productos.edit', $producto->id_producto) }}"
                     class="btn btn-sm px-3 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600">
                     <i class="fas fa-edit">EDITAR</i>
@@ -72,6 +73,7 @@
                     @else
                         <form action="{{ route('productos.activate', $producto->id_producto) }}" method="POST">
                             @csrf
+                           
                             <button type="submit"
                                 class="px-3 py-1 text-sm text-white bg-green-600 rounded hover:bg-green-700">
                                 <i class="fas fa-toggle-off">ACTIVAR</i>
@@ -83,6 +85,7 @@
                             <button type="submit" class="px-3 py-1 text-sm text-white bg-red-600 rounded hover:bg-red-700">
                                 <i class="fas fa-trash">Eliminar</i>
                             </button>
+                            @endif
                         </form>
                     @endif
 
