@@ -8,7 +8,9 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1>Listado de Notificaciones</h1>
+        @if (Auth::user()->id_rol == 1)    
             <a href="{{ route('notificaciones.create') }}" class="btn btn-success">+ Nueva Notificación</a>
+        @endif
         </div>
 
         @if(session('success'))
@@ -51,12 +53,14 @@
                             </td>
                             <td>
                                 <a href="{{ route('notificaciones.show', $notificacion->id_notificacion) }}" class="btn btn-sm btn-primary">Ver</a>
+                            @if (Auth::user()->id_rol == 1)    
                                 <a href="{{ route('notificaciones.edit', $notificacion->id_notificacion) }}" class="btn btn-sm btn-warning">Editar</a>
                                 <form action="{{ route('notificaciones.destroy', $notificacion->id_notificacion) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar esta notificación?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger text-white" type="submit">Eliminar</button>
                                 </form>
+                            @endif
                             </td>
                         </tr>
                     @empty

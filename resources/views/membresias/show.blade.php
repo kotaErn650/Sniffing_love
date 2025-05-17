@@ -28,11 +28,11 @@
             <div class="card-footer">
                 <a href="{{ route('membresias.index') }}" class="btn btn-secondary">Volver</a>
 
-                
+            @if (Auth::user()->id_rol == 1)    
 
                 
                 <a href="{{ route('membresias.edit', $membresia->id_membresia) }}" class="btn btn-warning">Editar</a>
-                
+            @endif    
             </div>
         </div>
     </div>

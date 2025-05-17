@@ -33,7 +33,9 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('notificaciones.index') }}" class="btn btn-secondary">Volver</a>
+            @if (Auth::user()->id_rol == 1)    
                 <a href="{{ route('notificaciones.edit', $notificacion->id_notificacion) }}" class="btn btn-warning">Editar</a>
+            @endif
             </div>
         </div>
     </div>

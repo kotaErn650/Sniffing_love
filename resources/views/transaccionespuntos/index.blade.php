@@ -7,7 +7,9 @@
 
     <div class="container mt-4">
         <div class="d-flex justify-content-end mb-3">
+        @if (Auth::user()->id_rol == 1)    
             <a href="{{ route('transaccionespuntos.create') }}" class="btn btn-success">+ Nueva Transacción</a>
+        @endif    
         </div>
 
         <table class="table table-bordered table-hover text-center align-middle">
@@ -35,12 +37,14 @@
                         <td>{{ $transaccion->id_referencia ?? '—' }}</td>
                         <td>
                             <a href="{{ route('transaccionespuntos.show', ['transaccionespunto' => $transaccion->id_transaccion]) }}" class="btn btn-primary btn-sm">Ver</a>
+                        @if (Auth::user()->id_rol == 1)
                             <a href="{{ route('transaccionespuntos.edit', ['transaccionespunto' => $transaccion->id_transaccion]) }}" class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('transaccionespuntos.destroy', ['transaccionespunto' => $transaccion->id_transaccion]) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta transacción?')">Eliminar</button>
                             </form>
+                        @endif
                         </td>
                     </tr>
                 @endforeach

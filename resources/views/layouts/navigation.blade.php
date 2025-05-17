@@ -33,7 +33,11 @@
                     <x-nav-link :href="route('aceptacionpoliticas.index')" :active="request()->routeIs('aceptacionpoliticas.index')">
                         {{ __('Aceptacion De Politicas') }}
                     </x-nav-link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> a0721bc763d9feeace1e2288523e3efa486d972e
                     <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                         {{ __('Notificaciones') }}
                     </x-nav-link>
@@ -49,7 +53,14 @@
                     <x-nav-link :href="route('membresias.index')" :active="request()->routeIs('membresias.index')">
                         {{ __('Membresias') }}
                     </x-nav-link>
+<<<<<<< HEAD
+                    
+                    
+=======
+>>>>>>> e98676ae82d0ccd99b600581c965a09460a10f47
+=======
                    
+>>>>>>> a0721bc763d9feeace1e2288523e3efa486d972e
                 </div>
             </div>
 
