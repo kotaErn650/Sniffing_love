@@ -69,7 +69,16 @@
 
     </style>
 </head>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('⭐🐩🐾 Dashboard 🐾 🐶⭐') }}
+        </h2>
+    </x-slot>
+
+
 <body>
+
     <h1>Listado de Citas</h1>
 
     <div class="text-center mb-4">
@@ -94,3 +103,4 @@
     </ul>
 </body>
 </html>
+</x-app-layout>
