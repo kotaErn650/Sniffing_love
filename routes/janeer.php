@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Health\CitaController;
+use App\Http\Controllers\Veterinary\CitaController;
 
-Route::resource('citas', CitaController::class);
+
+Route::middleware(['auth'])->group(function () {
+
+
+     //Rutas Citas
+ Route::resource('citas', CitaController::class);
+
+    
+});
