@@ -37,7 +37,10 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('suscripcionesmembresias.index') }}" class="btn btn-secondary">Volver</a>
+            @if (Auth::user()->id_rol == 1)
+    
                 <a href="{{ route('suscripcionesmembresias.edit', $suscripcion->id_suscripcion) }}" class="btn btn-warning text-white">Editar</a>
+            @endif
             </div>
         </div>
     </div>

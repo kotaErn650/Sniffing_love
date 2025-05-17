@@ -7,7 +7,9 @@
 
     <div class="container mt-4">
         <div class="d-flex justify-content-end mb-3">
+        @if (Auth::user()->id_rol == 1)    
             <a href="{{ route('referidos.create') }}" class="btn btn-success">+ Nuevo Registro</a>
+        @endif    
         </div>
 
         <table class="table table-bordered table-hover text-center align-middle">
@@ -31,12 +33,14 @@
                         <td>{{ $referido->puntos_otorgados }}</td>
                         <td>
                             <a href="{{ route('referidos.show', ['referido' => $referido->id_referido]) }}" class="btn btn-primary btn-sm">Ver</a>
+                        @if (Auth::user()->id_rol == 1)    
                             <a href="{{ route('referidos.edit', ['referido' => $referido->id_referido]) }}" class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('referidos.destroy', ['referido' => $referido->id_referido]) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                             </form>
+                        @endif
                         </td>
                     </tr>
                 @endforeach

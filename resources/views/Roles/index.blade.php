@@ -8,7 +8,13 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1>Listado de Roles</h1>
+
+        @if (Auth::user()->id_rol == 1)
+
             <a href="{{ route('roles.create') }}" class="btn btn-success">+ Nuevo Rol</a>
+
+        @endif
+        
         </div>
 
         @if(session('success'))
@@ -35,12 +41,16 @@
                             <td>{{ $role->created_at ? $role->created_at->format('Y-m-d H:i') : 'No disponible' }}</td>
                             <td>
                                 <a href="{{ route('roles.show', $role->id_rol) }}" class="btn btn-sm btn-primary">Ver</a>
+
+                            @if (Auth::user()->id_rol == 1)
+
                                 <a href="{{ route('roles.edit', $role->id_rol) }}" class="btn btn-sm btn-warning">Editar</a>
                                 <form action="{{ route('roles.destroy', $role->id_rol) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar este rol?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger text-white" type="submit">Eliminar</button>
                                 </form>
+                            @endif                  
                             </td>
                         </tr>
                     @empty

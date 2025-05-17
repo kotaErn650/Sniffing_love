@@ -8,7 +8,9 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1>Listado de Políticas</h1>
+            @if (Auth::user()->id_rol == 1)
             <a href="{{ route('politicas.create') }}" class="btn btn-success">+ Nueva Política</a>
+            @endif
         </div>
 
         @if(session('success'))
@@ -43,11 +45,14 @@
                             <td>{{ $politica->activa ? 'Sí' : 'No' }}</td>
                             <td>
                                 <a href="{{ route('politicas.show', $politica->id_politica) }}" class="btn btn-sm btn-primary">Ver</a>
+
+                            @if (Auth::user()->id_rol == 1)
                                 <a href="{{ route('politicas.edit', $politica->id_politica) }}" class="btn btn-sm btn-warning">Editar</a>
                                 <form action="{{ route('politicas.destroy', $politica->id_politica) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de eliminar esta política?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger text-white">Eliminar</button>
+                            @endif    
                                 </form>
                             </td>
                         </tr>

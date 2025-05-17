@@ -8,7 +8,10 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4>Listado de Suscripciones</h4>
+        @if (Auth::user()->id_rol == 1)
+    
             <a href="{{ route('suscripcionesmembresias.create') }}" class="btn btn-success">+ Nueva Suscripción</a>
+        @endif
         </div>
 
         @if(session('success'))
@@ -53,13 +56,15 @@
                             <td>{{ $suscripcion->metodo_pago ?? '—' }}</td>
                             <td>
                                 <a href="{{ route('suscripcionesmembresias.show', $suscripcion->id_suscripcion) }}" class="btn btn-primary btn-sm">Ver</a>
-                                
+                            @if (Auth::user()->id_rol == 1)
+   
                                 <a href="{{ route('suscripcionesmembresias.edit', $suscripcion->id_suscripcion) }}" class="btn btn-warning btn-sm text-white">Editar</a>
                                 <form action="{{ route('suscripcionesmembresias.destroy', $suscripcion->id_suscripcion) }}" method="POST" class="d-inline-block" onsubmit="return confirm('¿Eliminar esta suscripción?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                 </form>
+                            @endif
                             </td>
                         </tr>
                     @empty

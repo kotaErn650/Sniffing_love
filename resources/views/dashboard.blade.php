@@ -46,40 +46,40 @@
                     <p class="text-black text-sm">Registra las notificaciones aceptadas por los usuarios.</p>
                 </a>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
                 <a href="{{route('notificaciones.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Notificaciones</h3>
                     <p class="text-black text-sm">Registra las notificaciones aceptadas por los usuarios.</p>
                 </a>
 
                 <a href="{{route('puntosrecompensa.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
-=======
+
                 <a href="{{route('puntosrecompensa.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
->>>>>>> a0721bc763d9feeace1e2288523e3efa486d972e
+
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Puntos Recompensa</h3>
                     <p class="text-black text-sm">Registra los puntos de recompensa para los usuarios.</p>
                 </a>
 
-<<<<<<< HEAD
+
                 <a href="{{route('transaccionespuntos.index')}}"class="bg-white border border-red-600 hover:bg-red-50 shadow-md hover:shadow-lg rounded-2xl p-6 transition duration-300">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Transacciones Puntos</h3>
                     <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
                 </a>
-=======
-=======
+
+
                 <a href="{{route('transaccionespuntos.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Transacciones Puntos</h3>
                     <p class="text-black text-sm">Registra la transacciones de los puntos de los usuarios.</p>
                 </a>
->>>>>>> a0721bc763d9feeace1e2288523e3efa486d972e
-                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
-                    <p class="text-black text-sm">/////////////////////////////</p>
+
+                <a href="{{route('suscripcionesmembresias.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Suscripciones Membresias</h3>
+                    <p class="text-black text-sm">Registra la Informacion de las suscripciones a membresias por parte de los usuarios</p>
                 </a>
-                <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 TABLA XXXX</h3>
-                    <p class="text-black text-sm">/////////////////////////////</p>
+                <a href="{{route('configuraciones.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">👥 Configuraciones</h3>
+                    <p class="text-black text-sm">Ls configuraciones dentro de la aplicion</p>
                 </a>
 
                                 <a href="#"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">

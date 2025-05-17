@@ -7,7 +7,9 @@
 
     <div class="container mt-4">
         <div class="d-flex justify-content-end mb-3">
+        @if (Auth::user()->id_rol == 1)    
             <a href="{{ route('puntosrecompensa.create') }}" class="btn btn-success">+ Nuevo Registro</a>
+        @endif
         </div>
 
         <div class="table-responsive">
@@ -30,12 +32,14 @@
                             <td>{{ $punto->fecha_actualizacion ? $punto->fecha_actualizacion->format('Y-m-d H:i:s') : 'No asignada' }}</td>
                             <td>
                                 <a href="{{ route('puntosrecompensa.show', ['puntosrecompensa' => $punto->id_punto]) }}" class="btn btn-primary btn-sm">Ver</a>
+                            @if (Auth::user()->id_rol == 1)    
                                 <a href="{{ route('puntosrecompensa.edit', ['puntosrecompensa' => $punto->id_punto]) }}" class="btn btn-warning btn-sm">Editar</a>
                                 <form action="{{ route('puntosrecompensa.destroy', ['puntosrecompensa' => $punto->id_punto]) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                                 </form>
+                            @endif
                             </td>
                         </tr>
                     @endforeach
