@@ -107,6 +107,14 @@
 
 
 
+
+               <a href="{{route('productos.index')}}"style="background-image: url('/img/sspi_header.svg')"class="border rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-blue-600 mb-2">☠️ PRUEBAS</h3>
+                    <p class="text-black text-sm">Registra loas membresias accesibles para los usuarios.</p>
+                </a>
+
+
+
                 
             </div>
         </div>
