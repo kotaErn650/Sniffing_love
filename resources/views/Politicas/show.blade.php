@@ -26,7 +26,9 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('politicas.index') }}" class="btn btn-secondary">Volver</a>
+            @if (Auth::user()->id_rol == 1)
                 <a href="{{ route('politicas.edit', $politica->id_politica) }}" class="btn btn-warning">Editar</a>
+            @endif
             </div>
         </div>
     </div>

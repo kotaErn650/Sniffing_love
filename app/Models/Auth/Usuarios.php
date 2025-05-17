@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Auth\Roles;
 use App\Models\Auth\AceptacionPoliticas;
+use App\Models\Auth\PuntosRecompensa;
 
 class Usuarios extends Authenticatable implements MustVerifyEmail
 {

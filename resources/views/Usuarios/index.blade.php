@@ -8,7 +8,11 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1>Listado de Usuarios</h1>
+
+        @if (Auth::user()->id_rol == 1)
+
             <a href="{{ route('usuarios.create') }}" class="btn btn-success">+ Nuevo Usuario</a>
+        @endif
         </div>
 
         @if(session('success'))
@@ -65,12 +69,14 @@
                             <td>{{ $usuario->remember_token ?? '—' }}</td>
                             <td>
                                 <a href="{{ route('usuarios.show', $usuario->id_usuario) }}" class="btn btn-sm btn-primary">Ver</a>
+
+                            @if (Auth::user()->id_rol == 1)
                                 <a href="{{ route('usuarios.edit', $usuario->id_usuario) }}" class="btn btn-sm btn-warning">Editar</a>
-                                
                                 <form action="{{ route('usuarios.destroy', $usuario->id_usuario) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger text-white">Eliminar</button>
+                            @endif
                                 </form>
                             </td>
                         </tr>

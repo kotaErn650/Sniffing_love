@@ -1,6 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Health\CitaController;
+use App\Http\Controllers\Health\CitaController; //llama sus ciontrtoladoeres aqui
 
-Route::resource('citas', CitaController::class);
+
+
+    Route::middleware(['auth'])->group(function () {
+
+
+     //Rutas Citas
+
+ Route::resource('citas', CitaController::class);
+
+    
+});

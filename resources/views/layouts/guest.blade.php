@@ -14,7 +14,7 @@
 
         <style>
             body {
-            background-image: url('{{ asset("/img/logo_body.jpg") }}');
+            background-image: url('{{ asset("/img/portada.png") }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -39,7 +39,7 @@
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-orange-600 hover:bg-[#EAA429] shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4  shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

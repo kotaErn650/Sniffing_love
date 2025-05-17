@@ -18,7 +18,11 @@
             </div>
             <div class="card-footer">
                 <a href="{{ route('roles.index') }}" class="btn btn-secondary">Volver al listado</a>
+
+            @if (Auth::user()->id_rol == 1)
+
                 <a href="{{ route('roles.edit', $role->id_rol) }}" class="btn btn-warning">Editar</a>
+            @endif
             </div>
         </div>
     </div>

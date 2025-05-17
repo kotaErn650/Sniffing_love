@@ -21,7 +21,7 @@
             <!-- Page Heading -->
             @isset($header)
                 <header class=" shadow-xl" style="background-image: url('/img/sspi_header.svg'); ">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
                         {{ $header }}
                     </div>
                 </header>
@@ -31,6 +31,7 @@
             <main>
                 {{ $slot }}
             </main>
+            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     </body>
