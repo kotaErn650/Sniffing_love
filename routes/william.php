@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\ConfiguracionesController;
     Route::middleware(['auth'])->group(function () {
 
 
+
     Route::resource('usuarios', UsuariosController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('politicas', PoliticasController::class);

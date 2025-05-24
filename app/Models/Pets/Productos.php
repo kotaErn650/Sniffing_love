@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Models\Veterinary;
+namespace App\Models\Pets;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Productos extends Model
 {
+     use HasFactory;
+    
     protected $table = 'productos';
     protected $primaryKey = 'id_producto';
-    public $timestamps = true;
-
+    
     protected $fillable = [
         'id_veterinaria',
         'nombre',
@@ -20,26 +22,22 @@ class Productos extends Model
         'imagen',
         'activo'
     ];
-
+    
     protected $casts = [
         'precio' => 'decimal:2',
         'activo' => 'boolean',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime'
+        'stock' => 'integer'
     ];
-
     
-    public static $categorias = [
-        'alimento',
-        'medicamento',
-        'accesorio',
-        'higiene',
-        'otro'
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
-
+    
     
     public function veterinaria()
     {
-        return $this->belongsTo('App\Models\Veterinary\Veterinarias', 'id_veterinaria');
+        return $this->belongsTo('App\Models\Pets\Veterinaria', 'id_veterinaria');
     }
 }
