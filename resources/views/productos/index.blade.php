@@ -16,9 +16,11 @@
             {{ session('success') }}
         </div>
     @endif
+      @if (Auth::user()->id_rol == 1)
         <button type="submit"class="px-3 py-1 text-sm text-white bg-green-600 rounded hover:bg-green-700">
         <a href="{{route('productos.create') }}">Crear Producto</a>
         </button>
+     @endif
     @foreach($productos as $producto)
 
         <div class="w-full md:w-1/4">
@@ -32,7 +34,7 @@
                     <h2 class="text-xl font-bold {{ $producto->activo ? 'text-black' : 'text-gray-500' }}">
                         {{ $producto->nombre }}
                         @unless($producto->activo)
-                            <span class="text-xs bg-red-500 text-white px-2 py-1 rounded ml-2">Desactivado</span>
+                            <span class="text-xs bg-black text-red-600 px-2 py-1 rounded ml-2">DesHabilitado</span>
                         @endunless
                     </h2>
                     <p class="text-sm">{{ $producto->descripcion }}</p>
@@ -67,7 +69,7 @@
                             @csrf
                             <button type="submit"
                                 class="px-3 py-1 text-sm text-white bg-yellow-500 rounded hover:bg-yellow-600">
-                                <i class="fas fa-toggle-off">DESACTIVAR</i>
+                                <i class="fas fa-toggle-off">ACTIVADO</i>
                             </button>
                         </form>
                     @else
@@ -76,7 +78,7 @@
                            
                             <button type="submit"
                                 class="px-3 py-1 text-sm text-white bg-green-600 rounded hover:bg-green-700">
-                                <i class="fas fa-toggle-off">ACTIVAR</i>
+                                <i class="fas fa-toggle-off">DESACTIVADO</i>
                             </button>
                         </form>
                         <form action="{{ route('productos.destroy', $producto->id_producto) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">

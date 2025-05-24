@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Veterinary\VeterinariasController;
 use App\Http\Controllers\Veterinary\ServiciosController;
 use App\Http\Controllers\Pets\ProductosController;
-
+use App\Http\Controllers\Pets\NosotrosController;
 
 
 Route::middleware(['auth'])->group(function () {
