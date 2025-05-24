@@ -23,8 +23,8 @@ Realizar Checkout a su rama Correspondiente
         7-transacciones_puntos *
         8-referidos *
         9-membresias *
-        10-suscripciones_membresias
-        11-configuraciones
+        10-suscripciones_membresias *
+        11-configuraciones *
         🥸
         Jose (12 tablas) - Módulo de Veterinarias y Servicios
         1-veterinarias  *

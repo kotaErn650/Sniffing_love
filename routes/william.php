@@ -10,6 +10,8 @@ use App\Http\Controllers\Auth\PuntosRecompensaController;
 use App\Http\Controllers\Auth\TransaccionesPuntosController;
 use App\Http\Controllers\Auth\ReferidosController;
 use App\Http\Controllers\Auth\MembresiasController;
+use App\Http\Controllers\Auth\SuscripcionesMembresiasController;
+use App\Http\Controllers\Auth\ConfiguracionesController;
 
 
     Route::middleware(['auth'])->group(function () {
@@ -24,6 +26,8 @@ use App\Http\Controllers\Auth\MembresiasController;
     Route::resource('transaccionespuntos', TransaccionesPuntosController::class);
     Route::resource('referidos', ReferidosController::class);
     Route::resource('membresias', MembresiasController::class);
+    Route::resource('suscripcionesmembresias', SuscripcionesMembresiasController::class);
+    Route::resource('configuraciones', ConfiguracionesController::class);
 
     
 });

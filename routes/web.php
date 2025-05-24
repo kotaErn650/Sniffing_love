@@ -22,8 +22,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 require __DIR__.'/jose.php';
 require __DIR__.'/william.php';
+require __DIR__.'/janeer.php';
 
-
- //Rutas Citas
-
- Route::resource('citas', CitaController::class);
